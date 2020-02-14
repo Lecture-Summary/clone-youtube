@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { auth } from '../_actions/user_actions';
 import { useSelector, useDispatch } from "react-redux";
@@ -10,8 +11,8 @@ export default function (ComposedClass, reload, adminRoute = null) {
 
         useEffect(() => {
 
-            dispatch(auth()).then(async response => {
-                if (await !response.payload.isAuth) {
+            dispatch(auth()).then(response => {
+                if (!response.payload.isAuth) {
                     if (reload) {
                         props.history.push('/login')
                     }
@@ -27,7 +28,7 @@ export default function (ComposedClass, reload, adminRoute = null) {
                 }
             })
             
-        }, [dispatch, props.history, user.googleAuth])
+        }, [])
 
         return (
             <ComposedClass {...props} user={user} />
