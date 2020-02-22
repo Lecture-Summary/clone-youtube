@@ -20,9 +20,13 @@ router.post("/subscribed", (req, res) => {
     userFrom: req.body.userFrom
   }).exec((err, subscribe) => {
     if (err) return res.status(400).send(err);
+
     let result = false;
-    if (subscribe.length !== 0) result = true;
-    res.status(200).json({ success: true, subscribed: result });
+    if (subscribe.length !== 0) {
+      result = true;
+    }
+
+    res.status(200).json({ success: true, subcribed: result });
   });
 });
 

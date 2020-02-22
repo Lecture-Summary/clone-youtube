@@ -117,7 +117,7 @@ router.post("/thumbnail", (req, res) => {
 });
 
 router.post("/getSubscriptionVideos", (req, res) => {
-  //Need to find all of the Users that I am subscribing to From Subscriber Collection
+  // 자신의 아이디를 가지고 구독하는 사람들을 찾는다.
 
   Subscriber.find({ userFrom: req.body.userFrom }).exec((err, subscribers) => {
     if (err) return res.status(400).send(err);
@@ -128,7 +128,7 @@ router.post("/getSubscriptionVideos", (req, res) => {
       subscribedUser.push(subscriber.userTo);
     });
 
-    //Need to Fetch all of the Videos that belong to the Users that I found in previous step.
+    // 찾은 사람들의 비디오를 가지고 온다.
     Video.find({ writer: { $in: subscribedUser } })
       .populate("writer")
       .exec((err, videos) => {
