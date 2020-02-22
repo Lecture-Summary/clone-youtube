@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Typography, Button, Form, message, Input, Icon } from "antd";
 import Dropzone from "react-dropzone";
 import axios from "axios";
-import { set } from "mongoose";
 import { useSelector } from "react-redux";
 
 const { TextArea } = Input;
