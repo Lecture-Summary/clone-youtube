@@ -13,7 +13,6 @@ function VideoDetailPage(props) {
   useEffect(() => {
     axios.post("/api/video/getVideoDetail", variable).then(response => {
       if (response.data.success) {
-        console.log(response.data.videoDetail);
         setVideoDetail(response.data.videoDetail);
       } else {
         alert("비디오 정보를 가져오길 실패했습니다.");

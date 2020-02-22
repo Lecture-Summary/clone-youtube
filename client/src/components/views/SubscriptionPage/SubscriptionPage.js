@@ -18,7 +18,6 @@ function SubscriptionPage() {
       .post("api/video/getSubscriptionVideos", subscriptionVariables)
       .then(response => {
         if (response.data.success) {
-          console.log(response.data.videos);
           setVideo(response.data.videos);
         } else {
           alert("비디오 가져오기를 실패했습니다.");
@@ -61,7 +60,7 @@ function SubscriptionPage() {
 
   return (
     <div style={{ width: "85%", margin: "3rem auto" }}>
-      <Title leve={2}>Recommended</Title>
+      <Title leve={2}>구독한 영상</Title>
       <hr />
       <Row gutter={[32, 16]}>{renderCards}</Row>
     </div>

@@ -12,7 +12,6 @@ function LandingPage() {
   useEffect(() => {
     axios.get("api/video/getVideos").then(response => {
       if (response.data.success) {
-        console.log(response.data);
         setVideo(response.data.videos);
       } else {
         alert("비디오 가져오기를 실패했습니다.");
@@ -55,7 +54,7 @@ function LandingPage() {
 
   return (
     <div style={{ width: "85%", margin: "3rem auto" }}>
-      <Title leve={2}>Recommended</Title>
+      <Title leve={2}>추천 영상</Title>
       <hr />
       <Row gutter={[32, 16]}>{renderCards}</Row>
     </div>
