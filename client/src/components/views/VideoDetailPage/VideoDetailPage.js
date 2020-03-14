@@ -49,8 +49,11 @@ function VideoDetailPage(props) {
         <Col lg={18} xs={24}>
           <div style={{ width: "100%", padding: "3rem 4rem" }}>
             <video
-              style={{ width: "100%" }}
-              src={`http://localhost:5000/${VideoDetail.filePath}`}
+              style={{
+                width: "100%",
+                height: "-webkit-fill-available"
+              }}
+              src={`http://118.38.150.183:5000/${VideoDetail.filePath}`}
               controls
             />
             <List.Item
